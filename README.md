@@ -1,29 +1,38 @@
-# debug
-Select Master Template Pattern:
-  [1] Hand + Arm (Integrated)
-  [2] Hand Only
-  [3] Arm Only
-  [0] Default (Use sim_config.json)
 
-Enter number [Default=1]: 2
+hfsts 1
+cmd> -> Getting status for FINGER_1...
 
-Command: python MuJoCoHand3DSimulator/run_simulator.py --pattern pattern_hand_only
+--- FINGER_1 Status ---
+  MP Angle                  : -0.00
+  PIP/DIP Angle             : -0.06
+
+Shutting down controller...
+Network command listener stopped.
+Releasing shared memory pointers...
+Traceback (most recent call last):
+  File "c:\hand\XanteIntegratedUpperController\hand_controller\system_controller.py", line 310, in main
+    _dispatch_user_command(command_line, shm_mgr, context)
+  File "c:\hand\XanteIntegratedUpperController\hand_controller\system_controller.py", line 195, in _dispatch_user_command
+    command_map[command](args, shm_mgr, context)
+  File "c:\hand\XanteIntegratedUpperController\hand_controller\hand_lib\handlers\hand_xante_command_handlers.py", line 174, in handle_finger_status
+    print(f"  AbAd Angle                : {abad:.2f}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported format string passed to NoneType.__format__
+
+During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "C:\hand\XanteIntegratedUpperController\MuJoCoHand3DSimulator\run_simulator.py", line 31, in <module>
-    from core.simulator import Simulator
-  File "C:\hand\XanteIntegratedUpperController\MuJoCoHand3DSimulator\core\simulator.py", line 15, in <module>
-    import mujoco
-  File "C:\Users\PMTP25-8\AppData\Local\Programs\Python\Python314\Lib\site-packages\mujoco\__init__.py", line 38, in <module>
-    ctypes.WinDLL(os.path.join(os.path.dirname(__file__), 'mujoco.dll'))
-    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\PMTP25-8\AppData\Local\Programs\Python\Python314\Lib\ctypes\__init__.py", line 433, in __init__
-    self._handle = self._load_library(name, mode, handle, winmode)
-                   ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\PMTP25-8\AppData\Local\Programs\Python\Python314\Lib\ctypes\__init__.py", line 451, in _load_library
-    return _LoadLibrary(self._name, winmode)
-OSError: [WinError 1114] ダイナミック リンク ライブラリ (DLL) 初期化ルーチンの実行に失敗しました。
-
-------------------------------------------------------------
-  Simulator exited.
-------------------------------------------------------------
+  File "c:\hand\XanteIntegratedUpperController\hand_controller\system_controller.py", line 407, in <module>
+    main()
+  File "c:\hand\XanteIntegratedUpperController\hand_controller\system_controller.py", line 375, in main
+    miniarm_command_handler.handle_ma_disconnect([], shm_mgr, context)
+                                                              ^^^^^^^
+UnboundLocalError: cannot access local variable 'context' where it is not associated with a value
+Exception ignored in: <function SharedMemory.__del__ at 0x00000213A8611800>
+Traceback (most recent call last):
+  File "C:\Users\PMTP25-8\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\shared_memory.py", line 187, in __del__
+    self.close()
+  File "C:\Users\PMTP25-8\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\shared_memory.py", line 230, in close
+    self._mmap.close()
+BufferError: cannot close exported pointers exist
+PS C:\hand\XanteIntegratedUpperController> 
