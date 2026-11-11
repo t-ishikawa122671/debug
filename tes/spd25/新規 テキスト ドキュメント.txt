@@ -1,0 +1,23 @@
+cmd> artjgen
+cmd> -> Generating CP Trajectory...
+
+============================================================
+--- Continuous Path (CP) Trajectory Report ---
+ [Seg 1] LIN        | Duration: 1.270s | Points: 254
+ [Seg 2] LIN        | Duration: 2.655s | Points: 531
+ [Seg 3] LIN        | Duration: 1.475s | Points: 295
+   >>> Blend Seg 1 -> 2 (CARTESIAN Space)
+       - Started at: 3.0 (mm/deg) before WP
+       - Overlap   : 46 pts (0.230 s)
+       - Min Dist  : 0.80 mm (Distance to WayPoint)
+       - Max TCP Vel during blend: 16.2 mm/s
+   >>> Blend Seg 2 -> 3 (CARTESIAN Space)
+       - Started at: 3.0 (mm/deg) before WP
+       - Overlap   : 126 pts (0.630 s)
+       - Min Dist  : 2.67 mm (Distance to WayPoint)
+       - Max TCP Vel during blend: 16.0 mm/s
+ [Total] Duration: 4.540s | Points: 908
+============================================================
+
+-> Saved Trajectory CSV to: converted_arm_cp_10_11_22_21.csv
+-> Saved Config JSON to: converted_arm_cp_10_11_22_21.json

@@ -1,5 +1,5 @@
 {
-    "filename": "converted_arm_cp__11_22_21",
+    "filename": "converted_arm_cp_10_11_22_21",
     "mode": "CP",
     "ptp": {
         "type": "JOINT",
@@ -63,10 +63,10 @@
                     580.09,
                     -97.39
                 ],
-                "speed": 25.0,
+                "speed": 15.0,
                 "speed_deg": 5.0,
-                "accel_time": 0.3,
-                "blend_threshold": 10.0,
+                "accel_time": 0.05,
+                "blend_threshold": 3.0,
                 "is_relative": false
             },
             {
@@ -78,10 +78,10 @@
                     580.09,
                     -86.19
                 ],
-                "speed": 25.0,
-                "speed_deg": 15.0,
-                "accel_time": 0.3,
-                "blend_threshold": 10.0,
+                "speed": 15.0,
+                "speed_deg": 5.0,
+                "accel_time": 0.05,
+                "blend_threshold": 3.0,
                 "is_relative": false
             },
             {
@@ -93,10 +93,10 @@
                     587.08,
                     -86.89
                 ],
-                "speed": 25.0,
+                "speed": 15.0,
                 "speed_deg": 5.0,
-                "accel_time": 0.3,
-                "blend_threshold": 10.0,
+                "accel_time": 0.05,
+                "blend_threshold": 3.0,
                 "is_relative": false
             }
         ]

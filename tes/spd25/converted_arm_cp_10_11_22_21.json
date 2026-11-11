@@ -1,0 +1,104 @@
+{
+    "filename": "converted_arm_cp_10_11_22_21",
+    "mode": "CP",
+    "ptp": {
+        "type": "JOINT",
+        "start": [
+            82.61,
+            -21.5,
+            2.3,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "goal": [
+            82.61,
+            -28.9,
+            8.65,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "speed": 60.0,
+        "accel": 60.0
+    },
+    "lin": {
+        "start_type": "JOINT",
+        "start": [
+            82.61,
+            -21.5,
+            2.3,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "goal": [
+            8.55,
+            65.92,
+            580.09,
+            -97.39
+        ],
+        "speed": 20.0,
+        "speed_deg": 15.0,
+        "accel_time": 0.3,
+        "elbow_up": true
+    },
+    "cp": {
+        "start_type": "JOINT",
+        "start": [
+            82.61,
+            -23.5,
+            3.5,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "waypoints": [
+            {
+                "tp_id": "11",
+                "m_type": "LIN",
+                "target": [
+                    8.55,
+                    65.92,
+                    580.09,
+                    -97.39
+                ],
+                "speed": 15.0,
+                "speed_deg": 5.0,
+                "accel_time": 0.05,
+                "blend_threshold": 3.0,
+                "is_relative": false
+            },
+            {
+                "tp_id": "22",
+                "m_type": "LIN",
+                "target": [
+                    -4.42,
+                    66.32,
+                    580.09,
+                    -86.19
+                ],
+                "speed": 5.0,
+                "speed_deg": 5.0,
+                "accel_time": 0.05,
+                "blend_threshold": 3.0,
+                "is_relative": false
+            },
+            {
+                "tp_id": "21",
+                "m_type": "LIN",
+                "target": [
+                    -4.7,
+                    86.41,
+                    587.08,
+                    -86.89
+                ],
+                "speed": 15.0,
+                "speed_deg": 5.0,
+                "accel_time": 0.05,
+                "blend_threshold": 3.0,
+                "is_relative": false
+            }
+        ]
+    }
+}
