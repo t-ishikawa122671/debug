@@ -1,0 +1,144 @@
+PS C:\hand\XanteIntegratedUpperController> & 'C:\Users\PMTP25-8\AppData\Local\Programs\Python\Python311\python.exe' 'c:/hand/XanteIntegratedUpperController/hand_controller/system_controller.py'
+[Info] Configuration loaded from c:\hand\XanteIntegratedUpperController\hand_controller\config\app_config.json
+[Info] Configuration loaded from c:\hand\XanteIntegratedUpperController\hand_controller\config\app_config.json
+
+--- Select Hand Type ---
+  1: Xmano Hand (Legacy)
+  2: Xante Hand (New)
+Enter hand type (1 or 2): 
+
+--- Select Hand Type ---
+  1: Xmano Hand (Legacy)
+  2: Xante Hand (New)
+Enter hand type (1 or 2): 2
+-> Hand Type set to 'XANTE'
+
+--- Select Communication Mode ---
+  1: Direct to Driver (Standard Dynamixel Protocol)
+  2: Direct to Driver (Xmano Protocol)
+  3: Hardware Controller (Modbus Protocol)
+  4: Debug Mode (Offline Dummy)
+Enter mode (1, 2, 3, or 4): 3
+-> Mode set to 'modbus'
+[SHMManager] Created new SHM 'Xante_SHM_Main' with size 69960 bytes.
+
+--- Select Control Table (XANTE) ---
+  1: Table_XantePoC1.py
+  2: Table_XantePoC1_1_4.py
+Enter file number (1-2): 2
+-> Control Table set to 'Table_XantePoC1_1_4'
+
+Checking Access Protection Status...
+  -> Access Protection is already DISABLED. No action needed.
+[WinFtdSerialCfgIf] Initialized.
+🔍 [Latency Check] Searching for hardware details of COM14...
+  -> Found: USB Serial Port (COM14)
+  -> HWID: USB VID:PID=0403:6014 SER=FTBINAJIA
+🔑 [Latency Check] Accessing Windows Registry...
+  - Extracted registry key pattern from HWID: 'VID_0403+PID_6014+FTBINAJIA'
+  - Found 13 subkeys under SYSTEM\CurrentControlSet\Enum\FTDIBUS
+    - Checking Key [0]: VID_0403+PID_6001+FTE6ZX2ZA
+    - Checking Key [1]: VID_0403+PID_6014+FTA2U1I4A
+    - Checking Key [2]: VID_0403+PID_6014+FTAK880KA
+    - Checking Key [3]: VID_0403+PID_6014+FTBENVT3A
+    - Checking Key [4]: VID_0403+PID_6014+FTBENVT4A
+    - Checking Key [5]: VID_0403+PID_6014+FTBENYUMA
+    - Checking Key [6]: VID_0403+PID_6014+FTBENYUOA
+    - Checking Key [7]: VID_0403+PID_6014+FTBINAJIA
+      -> Matched HWID part (Exact): VID_0403+PID_6014+FTBINAJIA
+        - Checking Instance Path: ...\VID_0403+PID_6014+FTBINAJIA\0000\Device Parameters
+          -> Opened 'Device Parameters' successfully (read-only).
+          -> Queried 'LatencyTimer' successfully.
+  ✅ Found current LatencyTimer: 16 ms in HKLM\SYSTEM\CurrentControlSet\Enum\FTDIBUS\VID_0403+PID_6014+FTBINAJIA\0000\Device Parameters
+ℹ️ [Latency Check] Target latency is 0, performing check only.
+************************************************************
+警告: シリアルポート COM14 の遅延タイマーが 16ms です。
+最適なパフォーマンスのためには 1ms に設定することを推奨します。
+
+(デバイスマネージャー > ポート > COM14 > プロパティ > ポートの設定 > 詳細設定 > 待機時間)
+************************************************************
+
+--- Select Wrist Communication Mode ---
+  1: Direct to Driver (Standard Dynamixel Protocol)
+  2: Direct to Driver (Xmano Protocol)
+  3: Hardware Controller (Modbus Protocol)
+  4: Debug Mode (Offline Dummy)
+  5: Debug Mode (Offline Modbus Dummy)
+  6: None
+Enter wrist mode (1, 2, 3, 4, 5, or 6): 3
+-> Wrist Mode set to 'modbus'
+##############################################
+## RUNNING WRIST VIA MODBUS PROTOCOL        ##
+##############################################
+-> Wrist driver shares the same XanteHandController instance with the hand driver.
+
+--- Select Hardware Config File ---
+  1: hardware_config.json           (Last modified: 2026-10-06 10:32:22)
+  2: hardware_config_PoC1#1.json    (Last modified: 2026-10-16 10:54:05)
+  3: hardware_config_PoC1#1_adjusting.json (Last modified: 2026-10-06 10:32:22)
+  4: hardware_config_PoC1#2.json    (Last modified: 2026-10-29 10:41:53)
+  5: hardware_config_PoC1#3_1.json  (Last modified: 2026-10-06 10:32:22)
+  6: hardware_config_PoC2#1.json    (Last modified: 2026-10-29 10:41:53)
+  7: hardware_config_sim.json       (Last modified: 2026-10-06 10:32:22)
+Enter file number (1-7): 6
+[Info] Hardware configuration loaded from hardware_config_PoC2#1.json
+
+--- [XanteHandCtrl] Loading Hardware Config ---
+-> Finger mapping detected: Finger5=THUMB
+   Loaded ABAD Multiplier for THUMB : 1.0
+   Loaded ABAD Multiplier for INDEX : 1.0
+   Loaded ABAD Multiplier for MIDDLE: 0.9
+   Loaded ABAD Multiplier for RING  : 0.9
+   Loaded ABAD Multiplier for PINKY : 1.0
+   Loaded One-Shot Max Diff for THUMB_ROTATE: 10.5°
+   Mapped Finger1_IN1          -> PINKY  IN1  (ID:  1, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger1_AbAd         -> PINKY  ABAD (ID:  2, Sign:  1.0, Vel:  32000, Acc: 600000, StepAcc: 3000000)
+   Mapped Finger2_IN1          -> RING   IN1  (ID:  3, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger2_AbAd         -> RING   ABAD (ID:  4, Sign:  1.0, Vel:  32000, Acc: 600000, StepAcc: 3000000)
+   Mapped Finger3_IN1          -> MIDDLE IN1  (ID:  5, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger3_AbAd         -> MIDDLE ABAD (ID:  6, Sign:  1.0, Vel:  32000, Acc: 600000, StepAcc: 3000000)
+   Mapped Finger4_IN1          -> INDEX  IN1  (ID:  7, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger4_AbAd         -> INDEX  ABAD (ID:  8, Sign:  1.0, Vel:  32000, Acc: 600000, StepAcc: 3000000)
+   Mapped Finger5_IN1          -> THUMB  IN1  (ID:  9, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger5_Swing_CM01   -> THUMB  ROT  (ID: 10, Sign:  1.0, Vel:   2500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger5_Swing_CM02   -> THUMB  ABAD (ID: 11, Sign:  1.0, Vel:   1000, Acc:  15000, StepAcc:  75000)
+   Mapped Finger1_IN2          -> PINKY  IN2  (ID: 12, Sign:  1.0, Vel: 100000, Acc: 150000, StepAcc: 750000)
+   Mapped Finger2_IN2          -> RING   IN2  (ID: 13, Sign:  1.0, Vel: 100000, Acc: 150000, StepAcc: 750000)
+   Mapped Finger3_IN2          -> MIDDLE IN2  (ID: 14, Sign:  1.0, Vel: 100000, Acc: 150000, StepAcc: 750000)
+   Mapped Finger4_IN2          -> INDEX  IN2  (ID: 15, Sign:  1.0, Vel: 100000, Acc: 150000, StepAcc: 750000)
+   Mapped Finger5_IN2          -> THUMB  IN2  (ID: 16, Sign:  1.0, Vel:   1000, Acc:  15000, StepAcc:  75000)
+-------------------------------------------------
+
+
+--- [XanteWristCtrl] Loading Hardware Config ---
+   Loaded One-Shot Max Diff for WRIST_1: 30.5°
+   Loaded One-Shot Max Diff for WRIST_2: 30.5°
+   Mapped Wrist_W1             -> WRIST 1 (ID: 17, Sign:  1.0, Vel:   25000, Acc:  150000)
+   Mapped Wrist_W2             -> WRIST 2 (ID: 18, Sign:  1.0, Vel:   25000, Acc:  150000)
+-------------------------------------------------
+
+Initialized 5 program execution tasks.
+[ProgramExecutor] Finger ID map initialized successfully.
+[ProgramExecutor] Finger ID map initialized successfully.
+[ProgramExecutor] Finger ID map initialized successfully.
+[ProgramExecutor] Finger ID map initialized successfully.
+[ProgramExecutor] Finger ID map initialized successfully.
+Monitoring IDs are fixed to 1-16 in Modbus mode.
+Enter Wrist IDs to monitor continuously (default: 17-18): 
+
+--- Checking Hand Controller (Modbus) Communication ---
+  [OK] Firmware Version: 3.2.66
+  ------------------------------------------------
+[Info] Configuration loaded from c:\hand\XanteIntegratedUpperController\hand_controller\config\app_config.json
+cmd> [MacroManager] Loaded 9 triggers.
+-> Monitoring IDs (from SHM): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+-> Applying upper-level input limits for 'nk2'...
+-> Applying upper-level input limits for 'virtual_slider'...
+-> Applying upper-level input limits for 'leap'...
+-> Applying upper-level input limits for 'metaquest'...
+-> Applied strict limits to SHM. Loaded 508 routes.
+
+Xmano/Xante Upper Controller v01.00.04 started. Type 'help' for commands.
+-> Listening for network commands on localhost:6001
+
+[SHMManager Debug OK] Wrist status_dict contains all required keys.
