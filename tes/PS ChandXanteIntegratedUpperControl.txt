@@ -1,0 +1,433 @@
+PS C:\hand\XanteIntegratedUpperController> & 'C:\Users\PMTP25-8\AppData\Local\Programs\Python\Python311\python.exe' 'c:/hand/XanteIntegratedUpperController/hand_controller/system_controller.py'
+[Info] Configuration loaded from c:\hand\XanteIntegratedUpperController\hand_controller\config\app_config.json
+[Info] Configuration loaded from c:\hand\XanteIntegratedUpperController\hand_controller\config\app_config.json
+
+--- Select Hand Type ---
+  1: Xmano Hand (Legacy)
+  2: Xante Hand (New)
+Enter hand type (1 or 2): 2
+-> Hand Type set to 'XANTE'
+
+--- Select Communication Mode ---
+  1: Direct to Driver (Standard Dynamixel Protocol)
+  2: Direct to Driver (Xmano Protocol)
+  3: Hardware Controller (Modbus Protocol)
+  4: Debug Mode (Offline Dummy)
+Enter mode (1, 2, 3, or 4): 3
+-> Mode set to 'modbus'
+[SHMManager] Created new SHM 'Xante_SHM_Main' with size 70248 bytes.
+
+--- Select Control Table (XANTE) ---
+  1: Table_XantePoC1.py
+  2: Table_XantePoC1_1_4.py
+Enter file number (1-2): 2
+-> Control Table set to 'Table_XantePoC1_1_4'
+
+Checking Access Protection Status...
+  -> Access Protection is already DISABLED. No action needed.
+[WinFtdSerialCfgIf] Initialized.
+🔍 [Latency Check] Searching for hardware details of COM14...
+  -> Found: USB Serial Port (COM14)
+  -> HWID: USB VID:PID=0403:6014 SER=FTBINAJIA
+🔑 [Latency Check] Accessing Windows Registry...
+  - Extracted registry key pattern from HWID: 'VID_0403+PID_6014+FTBINAJIA'
+  - Found 14 subkeys under SYSTEM\CurrentControlSet\Enum\FTDIBUS
+    - Checking Key [0]: VID_0403+PID_6001+FTE6ZX2ZA
+    - Checking Key [1]: VID_0403+PID_6014+FTA2U1I4A
+    - Checking Key [2]: VID_0403+PID_6014+FTAK880KA
+    - Checking Key [3]: VID_0403+PID_6014+FTBENVT3A
+    - Checking Key [4]: VID_0403+PID_6014+FTBENVT4A
+    - Checking Key [5]: VID_0403+PID_6014+FTBENYUMA
+    - Checking Key [6]: VID_0403+PID_6014+FTBENYUOA
+    - Checking Key [7]: VID_0403+PID_6014+FTBINAJIA
+      -> Matched HWID part (Exact): VID_0403+PID_6014+FTBINAJIA
+        - Checking Instance Path: ...\VID_0403+PID_6014+FTBINAJIA\0000\Device Parameters
+          -> Opened 'Device Parameters' successfully (read-only).
+          -> Queried 'LatencyTimer' successfully.
+  ✅ Found current LatencyTimer: 16 ms in HKLM\SYSTEM\CurrentControlSet\Enum\FTDIBUS\VID_0403+PID_6014+FTBINAJIA\0000\Device Parameters
+ℹ️ [Latency Check] Target latency is 0, performing check only.
+************************************************************
+警告: シリアルポート COM14 の遅延タイマーが 16ms です。
+最適なパフォーマンスのためには 1ms に設定することを推奨します。
+
+(デバイスマネージャー > ポート > COM14 > プロパティ > ポートの設定 > 詳細設定 > 待機時間)
+************************************************************
+
+--- Select Wrist Communication Mode ---
+  1: Direct to Driver (Standard Dynamixel Protocol)
+  2: Direct to Driver (Xmano Protocol)
+  3: Hardware Controller (Modbus Protocol)
+  4: Debug Mode (Offline Dummy)
+  5: Debug Mode (Offline Modbus Dummy)
+  6: None
+Enter wrist mode (1, 2, 3, 4, 5, or 6): 3
+-> Wrist Mode set to 'modbus'
+##############################################
+## RUNNING WRIST VIA MODBUS PROTOCOL        ##
+##############################################
+-> Wrist driver shares the same XanteHandController instance with the hand driver.
+
+--- Select Hardware Config File ---
+  1: hardware_config.json           (Last modified: 2026-10-06 10:32:22)
+  2: hardware_config_PoC1#1.json    (Last modified: 2026-10-16 10:54:05)
+  3: hardware_config_PoC1#1_adjusting.json (Last modified: 2026-10-06 10:32:22)
+  4: hardware_config_PoC1#2.json    (Last modified: 2026-10-29 10:41:53)
+  5: hardware_config_PoC1#3_1.json  (Last modified: 2026-10-06 10:32:22)
+  6: hardware_config_PoC2#1.json    (Last modified: 2026-10-29 10:41:53)
+  7: hardware_config_sim.json       (Last modified: 2026-11-09 07:42:08)
+Enter file number (1-7): 6
+[Info] Hardware configuration loaded from hardware_config_PoC2#1.json
+
+--- [XanteHandCtrl] Loading Hardware Config ---
+-> Finger mapping detected: Finger5=THUMB
+   Loaded ABAD Multiplier for THUMB : 1.0
+   Loaded ABAD Multiplier for INDEX : 1.0
+   Loaded ABAD Multiplier for MIDDLE: 0.9
+   Loaded ABAD Multiplier for RING  : 0.9
+   Loaded ABAD Multiplier for PINKY : 1.0
+   Loaded One-Shot Max Diff for THUMB_ROTATE: 10.5°
+   Mapped Finger1_IN1          -> PINKY  IN1  (ID:  1, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger1_AbAd         -> PINKY  ABAD (ID:  2, Sign:  1.0, Vel:  32000, Acc: 600000, StepAcc: 3000000)
+   Mapped Finger2_IN1          -> RING   IN1  (ID:  3, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger2_AbAd         -> RING   ABAD (ID:  4, Sign:  1.0, Vel:  32000, Acc: 600000, StepAcc: 3000000)
+   Mapped Finger3_IN1          -> MIDDLE IN1  (ID:  5, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger3_AbAd         -> MIDDLE ABAD (ID:  6, Sign:  1.0, Vel:  32000, Acc: 600000, StepAcc: 3000000)
+   Mapped Finger4_IN1          -> INDEX  IN1  (ID:  7, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger4_AbAd         -> INDEX  ABAD (ID:  8, Sign:  1.0, Vel:  32000, Acc: 600000, StepAcc: 3000000)
+   Mapped Finger5_IN1          -> THUMB  IN1  (ID:  9, Sign:  1.0, Vel:   4500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger5_Swing_CM01   -> THUMB  ROT  (ID: 10, Sign:  1.0, Vel:   2500, Acc:  15000, StepAcc:  75000)
+   Mapped Finger5_Swing_CM02   -> THUMB  ABAD (ID: 11, Sign:  1.0, Vel:   1000, Acc:  15000, StepAcc:  75000)
+   Mapped Finger1_IN2          -> PINKY  IN2  (ID: 12, Sign:  1.0, Vel: 100000, Acc: 150000, StepAcc: 750000)
+   Mapped Finger2_IN2          -> RING   IN2  (ID: 13, Sign:  1.0, Vel: 100000, Acc: 150000, StepAcc: 750000)
+   Mapped Finger3_IN2          -> MIDDLE IN2  (ID: 14, Sign:  1.0, Vel: 100000, Acc: 150000, StepAcc: 750000)
+   Mapped Finger4_IN2          -> INDEX  IN2  (ID: 15, Sign:  1.0, Vel: 100000, Acc: 150000, StepAcc: 750000)
+   Mapped Finger5_IN2          -> THUMB  IN2  (ID: 16, Sign:  1.0, Vel:   1000, Acc:  15000, StepAcc:  75000)
+-------------------------------------------------
+
+
+--- [XanteWristCtrl] Loading Hardware Config ---
+   Loaded One-Shot Max Diff for WRIST_1: 30.5°
+   Loaded One-Shot Max Diff for WRIST_2: 30.5°
+   Mapped Wrist_W1             -> WRIST 1 (ID: 17, Sign:  1.0, Vel:   25000, Acc:  150000)
+   Mapped Wrist_W2             -> WRIST 2 (ID: 18, Sign:  1.0, Vel:   25000, Acc:  150000)
+-------------------------------------------------
+
+Initialized 5 program execution tasks.
+[ProgramExecutor] Finger ID map initialized successfully.
+[ProgramExecutor] Finger ID map initialized successfully.
+[ProgramExecutor] Finger ID map initialized successfully.
+[ProgramExecutor] Finger ID map initialized successfully.
+[ProgramExecutor] Finger ID map initialized successfully.
+Monitoring IDs are fixed to 1-16 in Modbus mode.
+Enter Wrist IDs to monitor continuously (default: 17-18): 
+
+--- Checking Hand Controller (Modbus) Communication ---
+  [OK] Firmware Version: 3.2.66
+  ------------------------------------------------
+[Info] Configuration loaded from c:\hand\XanteIntegratedUpperController\hand_controller\config\app_config.json
+cmd> [MacroManager] Loaded 9 triggers.
+-> Monitoring IDs (from SHM): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+[Info] Kinematics engine loaded: MiniArm4Axis
+-> Applying upper-level input limits for 'nk2'...
+-> Applying upper-level input limits for 'virtual_slider'...
+-> Applying upper-level input limits for 'leap'...
+-> Applying upper-level input limits for 'metaquest'...
+-> Applied strict limits to SHM. Loaded 508 routes.
+
+Xmano/Xante Upper Controller v01.00.04 started. Type 'help' for commands.
+-> Listening for network commands on localhost:6001
+
+[SHMManager Debug OK] Wrist status_dict contains all required keys.
+macro svo
+cmd> 
+[Macro] Started execution of 'svo.macro'.
+[Macro] -> Dispatching: ts 1-16 1
+[Info] In Modbus mode, 'ts' command applies to all axes.
+[Macro] -> Dispatching: w_ts 17-18 1
+[Macro] Finished execution of 'svo.macro'.
+
+[Info] In Modbus mode, 'w_ts' command applies to both wrist axes.
+macro hand_4close
+cmd> 
+[Macro] Started execution of 'hand_4close.macro'.
+[Macro] -> Dispatching: hfmov 1 90 40 0 20
+-> Moving FINGER_1 to MP:90.0, PIP/DIP:40.0, AbAd:0.0 at 20.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfmov 2 90 40 0 20
+-> Moving FINGER_2 to MP:90.0, PIP/DIP:40.0, AbAd:0.0 at 20.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfmov 3 90 40 0 20
+-> Moving FINGER_3 to MP:90.0, PIP/DIP:40.0, AbAd:0.0 at 20.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfmov 4 86 70 -7 20
+-> Moving FINGER_4 to MP:86.0, PIP/DIP:70.0, AbAd:-7.0 at 20.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfmov 5 0 0 0 20
+-> Moving FINGER_5 to MP:0.0, PIP/DIP:0.0, AbAd:0.0 at 20.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: wmov 3
+-> Moving WRIST to pose from set 3 (Pitch:0.7°, Yaw:-24.5°) at 40.0% speed...
+   Result: SUCCESS
+[Macro] Finished execution of 'hand_4close.macro'.
+
+macon
+cmd> -> EIP Traj period: 20 ms, Thread interval: 10 ms (FastForward: 10ms).
+-> Attempting to connect to MiniArm...
+Device found. Connecting to: 192.168.3.10
+Connecting to device at IP address: 192.168.3.10
+Connection successful.
+[OK] Connection successful. Data monitoring thread started.
+mamode 1
+cmd> -> Set MODE to 1 in buffer. Write request sent.
+mason on
+cmd> -> Turning servo ON...
+-> Triggered SON.
+masmode
+cmd> -> Sending Single Target Mode trigger (SMODE)...
+-> Triggered SMODE.
+armov 100
+cmd> -> Moving ARM to pose 100 (Speed: 20.0%, Accel: 20.0%) ...
+-> Trajectory registered: 707 points. Period set to 20.0ms.
+[Arm Traj] Finished sending all trajectory points.
+armov 16 
+cmd> -> Moving ARM to pose 16 (Speed: 25.0%, Accel: 30.0%) ...
+-> Trajectory registered: 440 points. Period set to 20.0ms.
+[Arm Traj] Finished sending all trajectory points.
+macro hand_demo2_reji
+cmd> 
+[Macro] Started execution of 'hand_demo2_reji.macro'.
+[Macro] -> Dispatching: ;; 右LAｎコネクタを左に移動
+[Macro] -> Dispatching: ; 手首右コネクタ位置
+[Error] Unknown command: ';;'. Type 'help'.
+[Macro] -> Dispatching: wmov 3
+[Macro] -> Dispatching: hfmov 5 0 40 0 90
+[Macro] -> Dispatching: ; アーム初期位置へ移動（ここにいる前提）
+[Error] Unknown command: ';'. Type 'help'.
+[Macro] -> Dispatching: armov 16
+-> Moving WRIST to pose from set 3 (Pitch:0.7°, Yaw:-24.5°) at 40.0% speed...
+   Result: SUCCESS
+-> Moving FINGER_5 to MP:0.0, PIP/DIP:40.0, AbAd:0.0 at 90.0% speed...
+   Result: SUCCESS
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving ARM to pose 16 (Speed: 25.0%, Accel: 30.0%) ...
+-> Trajectory registered: 1 points. Period set to 20.0ms.
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; アーム右コネクタ挿入位置に慣らし駆動有で移動
+[Macro] -> Dispatching: artjplay converted_arm_cp_16_15_14_12_13_14_2.csv
+[Error] Unknown command: ';'. Type 'help'.
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_cp_16_15_14_12_13_14_2.csv
+   (Original: 421 pts -> Resampled for 20ms: 106 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 106 points (2.12 s)...
+-> Trajectory registered: 106 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; コネクタ抑え
+[Macro] -> Dispatching: hfmov 5 30 40 20 70
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving FINGER_5 to MP:30.0, PIP/DIP:40.0, AbAd:20.0 at 70.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfmov 5 30 40 25 70
+-> Moving FINGER_5 to MP:30.0, PIP/DIP:40.0, AbAd:25.0 at 70.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: ; コネクタを抜いて左側へ移動（左に移動時手首も指示、回転有）
+[Macro] -> Dispatching: artjplay converted_arm_lin_2_10.csv
+[Error] Unknown command: ';'. Type 'help'.
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_lin_2_10.csv
+   (Original: 161 pts -> Resampled for 20ms: 41 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 41 points (0.82 s)...
+-> Trajectory registered: 41 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: wmov 4
+[Macro] -> Dispatching: artjplay converted_arm_cp_10_11_22_21_45_46_21.csv
+-> Moving WRIST to pose from set 4 (Pitch:5.6°, Yaw:-24.5°) at 40.0% speed...
+   Result: SUCCESS
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_cp_10_11_22_21_45_46_21.csv
+   (Original: 635 pts -> Resampled for 20ms: 160 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 160 points (3.20 s)...
+-> Trajectory registered: 160 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Transport ERROR] Communication failed: Checksum error in rtu mode: b'\x00\xcf' instead of b'\x00\xbb' . The response is: b'\x01\x03\xe8\xfa\xf8\xff\xff\x00\x00\x00\x00\xfb\x19\xff\xff\x00\xcf' (plain response: b'\x01\x03\xe8\xfa\xf8\xff\xff\x00\x00\x00\x00\xfb\x19\xff\xff\x00\xcf')
+  -> Request Details: Type=READ, Addr=0x2100
+[Transport INFO] All request queues have been cleared due to an error.
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; 左側コネクタ挿入
+[Error] Unknown command: ';'. Type 'help'.
+[Macro] -> Dispatching: artjplay converted_arm_lin_21_20.csv
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_lin_21_20.csv
+   (Original: 148 pts -> Resampled for 20ms: 38 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 38 points (0.76 s)...
+-> Trajectory registered: 38 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; 指を離す
+[Error] Unknown command: ';'. Type 'help'.
+[Macro] -> Dispatching: hfmov 5 30 40 20 50
+-> Moving FINGER_5 to MP:30.0, PIP/DIP:40.0, AbAd:20.0 at 50.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfmov 5 0 40 0 50
+-> Moving FINGER_5 to MP:0.0, PIP/DIP:40.0, AbAd:0.0 at 50.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: ; 手首を下げてコネクタから離れる
+[Macro] -> Dispatching: wmov 14
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving WRIST to pose from set 14 (Pitch:5.7°, Yaw:-26.5°) at 0.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: ; 左退避
+[Macro] -> Dispatching: artjplay converted_arm_lin_20_21.csv
+[Error] Unknown command: ';'. Type 'help'.
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_lin_20_21.csv
+   (Original: 128 pts -> Resampled for 20ms: 33 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 33 points (0.66 s)...
+-> Trajectory registered: 33 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; 開始位置へ移動
+[Error] Unknown command: ';'. Type 'help'.
+[Macro] -> Dispatching: artjplay converted_arm_cp_21_23_16.csv
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_cp_21_23_16.csv
+   (Original: 434 pts -> Resampled for 20ms: 110 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 110 points (2.20 s)...
+-> Trajectory registered: 110 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ;; 左LANコネクタを右に移動
+[Error] Unknown command: ';;'. Type 'help'.
+[Macro] -> Dispatching: ; 手首左コネクタ位置
+[Macro] -> Dispatching: wmov 4
+[Macro] -> Dispatching: ; 何故か離すと旋回している
+[Macro] -> Dispatching: hfrot 5 80
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving WRIST to pose from set 4 (Pitch:5.6°, Yaw:-24.5°) at 40.0% speed...
+   Result: SUCCESS
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving ROTATION_AXIS to 5.0 deg at 80.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfrot 0 80
+-> Moving ROTATION_AXIS to 0.0 deg at 80.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: ; アーム右コネクタ挿入位置に慣らし駆動有で移動
+[Error] Unknown command: ';'. Type 'help'.
+[Macro] -> Dispatching: artjplay converted_arm_cp_16_23_24_26_27_24_20.csv
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_cp_16_23_24_26_27_24_20.csv
+   (Original: 529 pts -> Resampled for 20ms: 133 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 133 points (2.66 s)...
+-> Trajectory registered: 133 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; コネクタ抑え
+[Macro] -> Dispatching: hfmov 5 30 40 20 70
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving FINGER_5 to MP:30.0, PIP/DIP:40.0, AbAd:20.0 at 70.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfmov 5 30 40 25 70
+-> Moving FINGER_5 to MP:30.0, PIP/DIP:40.0, AbAd:25.0 at 70.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: ; コネクタを抜いて右側へ移動（右に移動時手首も指示、回転有）
+[Macro] -> Dispatching: artjplay converted_arm_lin_20_21.csv
+[Error] Unknown command: ';'. Type 'help'.
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_lin_20_21.csv
+   (Original: 128 pts -> Resampled for 20ms: 33 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 33 points (0.66 s)...
+-> Trajectory registered: 33 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: wmov 3
+-> Moving WRIST to pose from set 3 (Pitch:0.7°, Yaw:-24.5°) at 40.0% speed...
+[Macro] -> Dispatching: artjplay converted_arm_cp_21_22_11_10_40_41_10.csv
+   Result: SUCCESS
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_cp_21_22_11_10_40_41_10.csv
+   (Original: 621 pts -> Resampled for 20ms: 156 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 156 points (3.12 s)...
+-> Trajectory registered: 156 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; 右側コネクタ挿入
+[Error] Unknown command: ';'. Type 'help'.
+[Macro] -> Dispatching: artjplay converted_arm_lin_10_2.csv
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_lin_10_2.csv
+   (Original: 155 pts -> Resampled for 20ms: 40 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 40 points (0.80 s)...
+-> Trajectory registered: 40 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; 指を離す
+[Macro] -> Dispatching: hfmov 5 30 40 20 50
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving FINGER_5 to MP:30.0, PIP/DIP:40.0, AbAd:20.0 at 50.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfmov 5 0 40 0 30
+-> Moving FINGER_5 to MP:0.0, PIP/DIP:40.0, AbAd:0.0 at 30.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: ; 手首を下げてコネクタから離れる
+[Error] Unknown command: ';'. Type 'help'.
+[Macro] -> Dispatching: wmov 13
+-> Moving WRIST to pose from set 13 (Pitch:0.7°, Yaw:-26.5°) at 0.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: ; 開始位置へ移動
+[Macro] -> Dispatching: artjplay converted_arm_cp_2_15_16.csv
+[Error] Unknown command: ';'. Type 'help'.
+
+--- [1/2] Loading Trajectory ---
+-> Successfully loaded Arm Trajectory: converted_arm_cp_2_15_16.csv
+   (Original: 367 pts -> Resampled for 20ms: 93 pts)
+
+--- [2/2] Starting Playback ---
+-> Starting Trajectory Playback: 93 points (1.86 s)...
+-> Trajectory registered: 93 points. Period set to 20.0ms.
+-> [Success] 軌道再生コマンドを発行しました。
+[Arm Traj] Finished sending all trajectory points.
+[Macro] -> Dispatching: ; 手首を初期位置へ
+[Macro] -> Dispatching: wmov 3
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving WRIST to pose from set 3 (Pitch:0.7°, Yaw:-24.5°) at 40.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: ; 何故か離すと旋回している
+[Macro] -> Dispatching: hfrot 5 80
+[Error] Unknown command: ';'. Type 'help'.
+-> Moving ROTATION_AXIS to 5.0 deg at 80.0% speed...
+   Result: SUCCESS
+[Macro] -> Dispatching: hfrot 0 80
+-> Moving ROTATION_AXIS to 0.0 deg at 80.0% speed...
+   Result: SUCCESS
+[Macro] Finished execution of 'hand_demo2_reji.macro'.
