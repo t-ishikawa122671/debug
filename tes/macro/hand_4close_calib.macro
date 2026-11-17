@@ -1,0 +1,15 @@
+ts 1-16 0
+@sleep 3
+hfcalib 1 90 40 0
+@sleep 0.5
+hfcalib 2 90 40 0
+@sleep 0.5
+hfcalib 3 90 40 0
+@sleep 0.5
+hfcalib 4 86 70 -7
+@sleep 0.5
+hfcalib 5 0 40 0
+@sleep 0.5
+ts 1-16 1
+@sleep 2
+

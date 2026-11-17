@@ -1,5 +1,5 @@
 {
-    "filename": "converted_arm_cp_10_11_22_21",
+    "filename": "converted_arm_cp_16_15_10",
     "mode": "CP",
     "ptp": {
         "type": "JOINT",
@@ -47,53 +47,38 @@
         "start_type": "JOINT",
         "start": [
             82.61,
-            -23.5,
-            3.5,
+            -34.13,
+            17.44,
             0.0,
             0.0,
             0.0
         ],
         "waypoints": [
             {
-                "tp_id": "11",
+                "tp_id": "15",
                 "m_type": "LIN",
                 "target": [
-                    8.55,
-                    65.92,
-                    580.09,
+                    10.23,
+                    78.85,
+                    572.96,
                     -97.39
                 ],
-                "speed": 15.0,
+                "speed": 25.0,
                 "speed_deg": 5.0,
                 "accel_time": 0.05,
                 "blend_threshold": 3.0,
                 "is_relative": false
             },
             {
-                "tp_id": "22",
+                "tp_id": "10",
                 "m_type": "LIN",
                 "target": [
-                    -4.42,
-                    66.32,
-                    580.09,
-                    -86.19
+                    10.7,
+                    82.47,
+                    587.39,
+                    -97.39
                 ],
-                "speed": 15.0,
-                "speed_deg": 5.0,
-                "accel_time": 0.05,
-                "blend_threshold": 3.0,
-                "is_relative": false
-            },
-            {
-                "tp_id": "21",
-                "m_type": "LIN",
-                "target": [
-                    -4.7,
-                    86.41,
-                    587.08,
-                    -86.89
-                ],
-                "speed": 15.0,
+                "speed": 25.0,
                 "speed_deg": 5.0,
                 "accel_time": 0.05,
                 "blend_threshold": 3.0,

@@ -1,0 +1,71 @@
+; アーム初期位置へ移動（ここにいる前提）
+armov 16
+; 手首右コネクタ位置
+wmov 1
+@sleep 1
+
+; アーム右コネクタ挿入位置に慣らし駆動有で移動
+armov 15
+@sleep 1.5
+armov 14
+@sleep 0.8
+armov 12
+@sleep 0.5
+armov 13
+@sleep 0.8
+armov 14
+@sleep 0.8
+armov 10
+@sleep 0.8
+armov 2
+@sleep 1.5
+
+; コネクタ抑え
+hfmov 5 30 40 0 40
+@sleep 0.5
+hfmov 5 30 40 20 40
+@sleep 0.5
+hfmov 5 30 40 40 40
+@sleep 1
+
+; コネクタを抜いて左側へ移動（左に移動時手首も支持）
+armov 10
+@sleep 0.7
+armov 11
+@sleep 1
+armov 22
+wmov 2
+@sleep 2
+
+; 左側コネクタ挿抜
+armov 21
+@sleep 1
+armov 20
+@sleep 2
+armov 21
+@sleep 1
+armov 22
+@sleep 1
+
+; 右側移動、手首右設定
+armov 11
+wmov 1
+@sleep 2
+
+; コネクタを挿して指を離す
+armov 10
+@sleep 1
+armov 2
+@sleep 1.5
+hfmov 5 30 40 20 40
+@sleep 0.7
+hfmov 5 0 0 0 40
+@sleep 0.7
+
+; 開始位置へ移動
+armov 14
+@sleep 1
+armov 15
+@sleep 1
+armov 16
+@sleep 1.5

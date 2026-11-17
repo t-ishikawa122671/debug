@@ -1,0 +1,6 @@
+hfmov 5 15 40 0 40
+@sleep 0.7
+hfmov 5 0 40 0 40
+@sleep 0.7
+
+

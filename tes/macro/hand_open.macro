@@ -1,0 +1,13 @@
+hfmov 5 0 0 0 20
+@sleep 1
+hfmov 1 0 0 0 20
+@sleep 1
+hfmov 2 0 0 0 20
+@sleep 1
+hfmov 3 0 0 0 20
+@sleep 1
+hfmov 4 0 0 0 20
+@sleep 1
+
+
+

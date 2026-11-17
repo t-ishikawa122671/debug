@@ -1,0 +1,94 @@
+{
+    "filename": "converted_arm_cp_21_23_16",
+    "mode": "CP",
+    "settle_time_s": 0.0,
+    "ptp": {
+        "type": "JOINT",
+        "start": [
+            82.61,
+            -21.5,
+            2.3,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "goal": [
+            82.61,
+            -28.9,
+            8.65,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "speed": 60.0,
+        "accel": 60.0
+    },
+    "lin": {
+        "start_type": "JOINT",
+        "start": [
+            93.5,
+            -20.5,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "goal": [
+            -4.57,
+            78.99,
+            587.0,
+            -86.69
+        ],
+        "speed": 35.0,
+        "speed_deg": 15.0,
+        "accel_time": 0.2,
+        "elbow_up": true
+    },
+    "cp": {
+        "start_type": "JOINT",
+        "start": [
+            93.41,
+            -24.5,
+            3.9,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "waypoints": [
+            {
+                "tp_id": "23",
+                "m_type": "PTP_JOINT",
+                "target": [
+                    93.5,
+                    -22.8,
+                    4.3,
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "speed": 90.0,
+                "speed_deg": 0.0,
+                "accel_time": 30.0,
+                "blend_threshold": 5.0,
+                "is_relative": false
+            },
+            {
+                "tp_id": "16",
+                "m_type": "PTP_JOINT",
+                "target": [
+                    70.0,
+                    -34.13,
+                    17.44,
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "speed": 90.0,
+                "speed_deg": 0.0,
+                "accel_time": 30.0,
+                "blend_threshold": 5.0,
+                "is_relative": false
+            }
+        ]
+    }
+}

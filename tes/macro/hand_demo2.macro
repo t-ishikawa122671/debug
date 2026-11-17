@@ -1,0 +1,90 @@
+;; 右LAｎコネクタを左に移動
+; 手首右コネクタ位置
+wmov 1
+
+; アーム初期位置へ移動（ここにいる前提）
+armov 16
+@sleep 1
+
+; アーム右コネクタ挿入位置に慣らし駆動有で移動
+artjplay converted_arm_cp_16_15_14_12_13_14_2.csv
+@sleep 3.3
+
+; コネクタ抑え
+;hfmov 5 30 40 0 90
+;@sleep 0.5
+hfmov 5 30 40 20 90
+@sleep 0.5
+hfmov 5 30 40 40 90
+@sleep 0.5
+
+; コネクタを抜いて左側へ移動（左に移動時手首も指示、回転有）
+artjplay converted_arm_lin_2_10.csv
+@sleep 1
+wmov 2
+artjplay converted_arm_cp_10_11_22_21_45_46_21.csv
+@sleep 3.5
+
+; 左側コネクタ挿入
+artjplay converted_arm_lin_21_20.csv
+@sleep 1
+
+; 指を離す
+hfmov 5 30 40 20 90
+@sleep 0.7
+hfmov 5 0 0 0 90
+@sleep 0.7
+; 手首を下げてコネクタから離れる
+wmov 12
+@sleep 0.7
+
+; 左退避
+artjplay converted_arm_lin_20_21.csv
+@sleep 1
+
+; 開始位置へ移動
+artjplay converted_arm_cp_21_23_16.csv
+@sleep 4
+
+;; 左LANコネクタを右に移動
+; 手首左コネクタ位置
+wmov 2
+; アーム右コネクタ挿入位置に慣らし駆動有で移動
+artjplay converted_arm_cp_16_23_24_26_27_24_20.csv
+@sleep 3.8
+
+; コネクタ抑え
+;hfmov 5 30 40 0 90
+;@sleep 0.5
+hfmov 5 30 40 20 90
+@sleep 0.5
+hfmov 5 30 40 40 90
+@sleep 0.5
+
+; コネクタを抜いて右側へ移動（右に移動時手首も指示、回転有）
+artjplay converted_arm_lin_20_21.csv
+@sleep 1
+wmov 1
+artjplay converted_arm_cp_21_22_11_10_40_41_10.csv
+@sleep 4
+
+; 右側コネクタ挿入
+artjplay converted_arm_lin_10_2.csv
+@sleep 1
+
+; 指を離す
+hfmov 5 30 40 20 90
+@sleep 0.7
+hfmov 5 0 0 0 90
+@sleep 0.7
+; 手首を下げてコネクタから離れる
+wmov 11
+@sleep 0.5
+
+; 開始位置へ移動
+artjplay converted_arm_cp_2_15_16.csv
+@sleep 2
+
+; 手首を初期位置へ
+wmov 1
+@sleep 0.7

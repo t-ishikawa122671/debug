@@ -1,0 +1,158 @@
+{
+    "filename": "converted_arm_cp__11_22_21_45_46_21",
+    "mode": "CP",
+    "settle_time_s": 0.0,
+    "ptp": {
+        "type": "JOINT",
+        "start": [
+            82.61,
+            -21.5,
+            2.3,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "goal": [
+            82.61,
+            -28.9,
+            8.65,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "speed": 60.0,
+        "accel": 60.0
+    },
+    "lin": {
+        "start_type": "JOINT",
+        "start": [
+            82.61,
+            -21.5,
+            2.3,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "goal": [
+            8.55,
+            65.92,
+            580.09,
+            -97.39
+        ],
+        "speed": 20.0,
+        "speed_deg": 15.0,
+        "accel_time": 0.3,
+        "elbow_up": true
+    },
+    "cp": {
+        "start_type": "JOINT",
+        "start": [
+            82.61,
+            -24.0,
+            3.7,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "waypoints": [
+            {
+                "tp_id": "11",
+                "m_type": "LIN",
+                "target": [
+                    8.55,
+                    65.92,
+                    580.09,
+                    -97.39
+                ],
+                "speed": 35.0,
+                "speed_deg": 5.0,
+                "accel_time": 0.2,
+                "blend_threshold": 10.0,
+                "is_relative": false
+            },
+            {
+                "tp_id": "22",
+                "m_type": "PTP_JOINT",
+                "target": [
+                    93.81,
+                    -28.9,
+                    8.65,
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "speed": 90.0,
+                "speed_deg": 0.0,
+                "accel_time": 50.0,
+                "blend_threshold": 10.0,
+                "is_relative": false
+            },
+            {
+                "tp_id": "21",
+                "m_type": "LIN",
+                "target": [
+                    -4.57,
+                    78.99,
+                    587.0,
+                    -86.69
+                ],
+                "speed": 35.0,
+                "speed_deg": 5.0,
+                "accel_time": 0.2,
+                "blend_threshold": 0.0,
+                "is_relative": false
+            },
+            {
+                "tp_id": "45",
+                "m_type": "PTP_JOINT",
+                "target": [
+                    93.11,
+                    -24.5,
+                    4.1,
+                    2.0,
+                    0.0,
+                    0.0
+                ],
+                "speed": 90.0,
+                "speed_deg": 0.0,
+                "accel_time": 30.0,
+                "blend_threshold": 0.0,
+                "is_relative": false
+            },
+            {
+                "tp_id": "46",
+                "m_type": "PTP_JOINT",
+                "target": [
+                    93.11,
+                    -24.5,
+                    4.1,
+                    -2.0,
+                    0.0,
+                    0.0
+                ],
+                "speed": 90.0,
+                "speed_deg": 0.0,
+                "accel_time": 30.0,
+                "blend_threshold": 0.0,
+                "is_relative": false
+            },
+            {
+                "tp_id": "21",
+                "m_type": "PTP_JOINT",
+                "target": [
+                    93.31,
+                    -24.5,
+                    4.1,
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "speed": 90.0,
+                "speed_deg": 0.0,
+                "accel_time": 30.0,
+                "blend_threshold": 0.0,
+                "is_relative": false
+            }
+        ]
+    }
+}
